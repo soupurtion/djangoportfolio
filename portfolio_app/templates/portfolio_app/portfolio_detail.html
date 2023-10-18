@@ -17,16 +17,20 @@
 -->
 <h2>Project List</h2>
 <a class="btn btn-primary" href="{% url 'create_project' portfolio.id %}" role="button">New</a>
+<br>
 {% if portfolio_project_list %}
-<ul>
 {% for project in portfolio_project_list %}
-<li>
-<strong>Project:-</strong> {{ project.title }} <a class="btn btn-primary" href="{{ project.get_absolute_url }}" role="button">View</a>
-<a class="btn btn-primary" href="{%url 'update_project' portfolio.id project.id %}" role="button">Update</a>
-<a class="btn btn-primary" href="{%url 'delete_project' portfolio.id project.id %}" role="button">Delete</a>
-</li>
+<div class="col-sm-3 p-2 border rounded-top">
+    <div class="container-fluid-sm">
+        <strong>Project:-</strong> {{ project.title }}
+        <br>
+        <a class="btn btn-primary" href="{{ project.get_absolute_url }}" role="button">View</a>
+        <a class="btn btn-primary" href="{%url 'update_project' portfolio.id project.id %}" role="button">Update</a>
+        <a class="btn btn-primary" href="{%url 'delete_project' portfolio.id project.id %}" role="button">Delete</a>
+        </div>
+</div>
 {% endfor %}
-</ul>
+
 {% endif %}
 
 {% endblock %}
